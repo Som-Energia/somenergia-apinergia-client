@@ -133,3 +133,4 @@ dmypy.json
 *configdb.py
 *dbconfig.py
 *vscode*
+.env.*
