@@ -23,11 +23,20 @@ It might require
 ```console
 $ sudo apt install python3.8-venv
 ```
+## Distribute
+
+```console
+$ pip install --upgrade twine
+```
 
 ### Distribute to TestPyPi
 
 ```console
-$ pip install --upgrade twine
 $ twine upload --repository testpypi dist/*
 ```
 
+### Distribute to PyPi
+
+```console
+$ twine upload dist/*
+```
