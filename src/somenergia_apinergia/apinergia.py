@@ -29,15 +29,17 @@ class Authentication:
         cls.base_url = base_url
         cls.url = f'{base_url}/auth'
 
+    # TODO handle username change more gracefully or not at all
     @classmethod
     def get_token(cls, username, password):
-        if not hasattr(cls, '_token'):
+        if not hasattr(cls, '_token') or username != cls._username:
             response = requests.post(cls.url, json={
                 'username': username,
                 'password': password
             })
             response.raise_for_status()
             cls._token = response.json()['access_token']
+            cls._username = username
         return cls._token
 
 class Apinergia:
